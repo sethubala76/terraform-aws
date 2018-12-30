@@ -1,21 +1,16 @@
-variable "region" {
-  default = "us-west-2"
-
+variable "region"{
+  default = "ap-south-1"
 }
 
-variable "vpc-cidr" {
-  default = "192.168.0.0/16"
+variable "ec2-ami" {
+type = "map"
+
+default = {
+  ap-south-1 = "ami-76d6f519"
+  ap-south-2 = "ami-e251209a"
+}
 }
 
-variable "subnet-cidr" {
-  type = "list"
-  default = ["192.168.1.0/24","192.168.2.0/24","192.168.3.0/24"]
+variable "instance_type" {
+  default = "t2.micro"
 }
-
-#variable "azs" {
-#  type = "list"
-#  default = ["us-west-2a","us-west-2b","us-west-2c"]
-#}
-
-# Declare the data source
-data "aws_availability_zones" "azs" {}
